@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush Color="#550000FF" x:Key="dateScrollerSelectionBrush" />
+    <SolidColorBrush Color="Blue" x:Key="dateScrollerSelectionBorderBrush" />
+    <SolidColorBrush Color="Blue" x:Key="dateScrollerSelectionLabelBrush" />
+</ResourceDictionary>

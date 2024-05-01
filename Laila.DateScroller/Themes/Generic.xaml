@@ -1,0 +1,78 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:cal="http://www.caliburnproject.org" 
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+                    xmlns:local="clr-namespace:Laila.DateScroller">
+
+    <Style TargetType="{x:Type local:DateScroller}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:DateScroller}">
+                    <ScrollViewer x:Name="PART_ScrollViewer" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
+                        <Grid Background="#eeeeee">
+                            <ItemsControl x:Name="PART_ItemsControl" Cursor="Hand" HorizontalAlignment="Left">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal"/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid Width="50" Height="75" Background="White">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+
+                                            <Border Grid.Row="0" BorderThickness="0,1,1,0" BorderBrush="Black" Background="Silver">
+                                                <TextBlock Text="{Binding Datum, StringFormat='dd'}" Margin="3,0,0,0" />
+                                            </Border>
+                                            <TextBlock Grid.Row="1" Text="" />
+                                            <Border Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="46" Height="{Binding Height}" Background="{Binding Brush}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                            </ItemsControl>
+                            <Border x:Name="PART_Border_Week" IsHitTestVisible="False" Width="{Binding ActualWidth, ElementName=PART_ItemsControl}" HorizontalAlignment="Left">
+                                <ItemsControl x:Name="PART_ItemsControl_Week" IsHitTestVisible="False">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Width="350" Height="75" Background="Transparent">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Grid.Row="0" Text="" />
+                                                <Border Grid.Row="1" BorderThickness="0,0,1,0" BorderBrush="Black" Background="Transparent">
+                                                    <TextBlock Text="{Binding Tekst}" Foreground="Gray" Margin="3,0,0,0" />
+                                                </Border>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Border>
+                            <Border x:Name="PART_Rect" Background="{DynamicResource dateScrollerSelectionBrush}" BorderThickness="1" BorderBrush="{DynamicResource dateScrollerSelectionBorderBrush}" Height="75" Width="50" HorizontalAlignment="Left" IsHitTestVisible="False">
+                            </Border>
+                            <Grid Height="75" Background="Transparent" IsHitTestVisible="False" HorizontalAlignment="Left">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="1" FontSize="11" Padding="3,0,3,0" Background="{DynamicResource dateScrollerSelectionLabelBrush}" Foreground="White" MinWidth="{Binding ActualWidth, ElementName=PART_Rect}" Margin="{Binding Margin, ElementName=PART_Rect}" x:Name="PART_Label" />
+                            </Grid>
+                        </Grid>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
