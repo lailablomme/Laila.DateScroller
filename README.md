@@ -1,4 +1,4 @@
-﻿# Laila.DatePicker
+﻿# Laila.DateScroller
 A .NET6 date scroller control.
 
 ## Installation
